@@ -1,0 +1,39 @@
+<mat-table [dataSource]="statewise" class="mat-elevation-z8">
+    <ng-container matColumnDef="state" sticky>
+        <mat-header-cell *matHeaderCellDef> State Name </mat-header-cell>
+        <mat-cell *matCellDef="let state"> {{state.state}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="confirmed">
+        <mat-header-cell *matHeaderCellDef> Confirmed </mat-header-cell>
+        <mat-cell *matCellDef="let state"> {{state.confirmed}} &nbsp;
+            <mat-icon *ngIf="state.deltaconfirmed > 0">trending_up</mat-icon> &nbsp;
+            <p *ngIf="state.deltaconfirmed > 0" class="negative-growth">{{state.deltaconfirmed}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+        <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+        <mat-cell *matCellDef="let state"> {{state.active}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="recovered">
+        <mat-header-cell *matHeaderCellDef> Recovered </mat-header-cell>
+        <mat-cell *matCellDef="let state"> {{state.recovered}} &nbsp;
+            <mat-icon>trending_up</mat-icon> &nbsp;
+            <p class="positive-growth">{{state.deltarecovered}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="death">
+        <mat-header-cell *matHeaderCellDef> Deaths </mat-header-cell>
+        <mat-cell *matCellDef="let state"> {{state.deaths}} &nbsp;
+            <mat-icon>trending_up</mat-icon> &nbsp;
+            <p class="negative-growth">{{state.deltadeaths}}</p>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -1,0 +1,24 @@
+.mat-elevation-z8 {
+    background-color: black;
+    overflow: scroll;
+}
+
+.mat-row,
+.mat-header-row {
+    border-bottom-color: #ccc;
+    min-width: fit-content;
+}
+
+.mat-cell,
+.mat-header-cell {
+    color: white;
+    min-width: 200px
+}
+
+.negative-growth {
+    color: red
+}
+
+.positive-growth {
+    color: green
+}

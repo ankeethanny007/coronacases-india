@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HomepageComponent} from './component/homepage/homepage.component'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'covid19india';
+  favorite = false;
+
+  constructor(){
+
+  }
+
+  toggleFavorite = () => {
+    this.favorite = !this.favorite;
+  }
 }
